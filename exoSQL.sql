@@ -315,3 +315,13 @@ HAVING AVG(salaire) < ANY (SELECT AVG(salaire) FROM employe WHERE titre = 'reprÃ
 SELECT COUNT(*)
 FROM employe
 WHERE salaire IS NOT NULL AND tauxcom IS NOT NULL;
+
+
+
+-- Sauvegarde et restauration
+
+-- Sauvegarde
+mysqldump --user=xxx --password=xxx hotel > backup_hotel.sql
+
+-- Restauration
+cat backup_hotel.sql | mysql --user=xxx --password=xxx new_hotel
